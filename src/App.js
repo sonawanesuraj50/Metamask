@@ -62,7 +62,7 @@ function App() {
             Chain Id:-{chainid !== 'undefined' && chainid}
           </div>   
           <button style={{display:'block'}} onClick={metaMaskDissconnect}>
-            Dissconnect To MetaMask
+            Dissconnect From MetaMask   
           </button>              
         </>
         :
