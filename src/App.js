@@ -64,7 +64,8 @@ function App() {
           <button style={{display:'block'}} onClick={metaMaskDissconnect}>
             Dissconnect From MetaMask   
           </button>              
-          //New File Is Added             
+          //New File Is Added  
+          {/* Github Commit */}
         </>
         :
         'MetaMask is not installed!'          
