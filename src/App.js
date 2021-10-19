@@ -64,6 +64,9 @@ function App() {
           <button style={{display:'block'}} onClick={metaMaskDissconnect}>
             Dissconnect From MetaMask   
           </button>
+=======
+          </button>  
+          //Master Branch            
         </>
         :
         'MetaMask is not installed!'          
