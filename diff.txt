@@ -1,0 +1,14 @@
+diff --git a/src/App.js b/src/App.js
+index 8b0d5df..8ab866e 100644
+--- a/src/App.js
++++ b/src/App.js
+@@ -63,7 +63,8 @@ function App() {
+           </div>   
+           <button style={{display:'block'}} onClick={metaMaskDissconnect}>
+             Dissconnect From MetaMask   
+-          </button>       
++          </button>     
++            {/* Master Commit  */}
+         </>
+         :
+         'MetaMask is not installed!'          
