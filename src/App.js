@@ -25,6 +25,7 @@ function App() {
   web3 = new Web3(window.ethereum);
 
   var  metamaskConnect = async () =>{  
+    const ethereum = await detectEthereumProvider();
     const account = await ethereum.request({ method: 'eth_requestAccounts' });
     setAccounts(account[0]);
     const chainid = await web3.eth.getChainId();
