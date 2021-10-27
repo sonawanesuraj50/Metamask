@@ -2,7 +2,9 @@ import './App.css';
 import Web3 from "web3";
 import detectEthereumProvider from '@metamask/detect-provider';
 import React, { useState,useEffect } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {increment} from './actions';
+import { decrement } from './actions';
 
 
 function App() {
@@ -15,7 +17,11 @@ function App() {
       
     });
     console.warn(accounts,'----------------------------');
-  })
+  },[])
+
+  const counter = useSelector(state => state.counters)
+  const loggedInn = useSelector(state => state.logged)
+  const distpatch = useDispatch();
 
   let web3;
   const [accounts,setAccounts] = useState('');
@@ -77,7 +83,12 @@ function App() {
             {getBalance}
               </>
             }   
-            {/* Master Commit  */}
+            <h2>counter{counter}</h2>
+            <button onClick={()=> distpatch(increment())}>+</button>
+            <button onClick={()=> distpatch(decrement())}>-</button>
+
+            <h2>Logdin{loggedInn}</h2>
+
         </>
         :
         'MetaMask is not installed!'          
