@@ -1,10 +1,11 @@
-import './App.css';
 import Web3 from "web3";
 import detectEthereumProvider from '@metamask/detect-provider';
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {increment} from './actions';
 import { decrement } from './actions';
+import { Nav, AppHeader} from './Nav/TopNav';
+import NavBar from './Nav/NavBar'
 
 
 function App() {
@@ -56,10 +57,10 @@ function App() {
  }
 
 
-  return (
-    <div className="App">
-      <header className="App-header">
-
+  return (<>
+    <NavBar>    
+    </NavBar>
+      <AppHeader>        
         {typeof window.web3 !== 'undefined' ?  
         <>
           'MetaMask is installed!'
@@ -87,15 +88,13 @@ function App() {
             <button onClick={()=> distpatch(increment())}>+</button>
             <button onClick={()=> distpatch(decrement())}>-</button>
 
-            <h2>Logdin{loggedInn}</h2>
-
+            <Nav>Logdin{loggedInn}</Nav>
         </>
         :
         'MetaMask is not installed!'          
         }
-
-      </header>
-    </div>
+      </AppHeader>
+    </>
   );
 }
 

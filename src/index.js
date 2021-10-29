@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { createStore } from 'redux';
+import { createStore,applyMiddleware,compose } from 'redux';
 import rootReducers from './reducers';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducers,
+              composeEnhancers(applyMiddleware(thunk))
+            );
 
 
 
@@ -20,7 +25,7 @@ ReactDOM.render(
 );
 
 //************************** React Redux**********************************/
-// //Action
+//**************************Action****************************************/
 // const increment = () => {
 //     return {
 //       type: 'INCREMENT',
@@ -33,7 +38,7 @@ ReactDOM.render(
 //      }
 //   }
 
-// // REDUCER  
+//**************************/REDUCER/***************************************/  
 // const counter = (state = 0,action) => {
 //   switch(action.type){
 //     case 'INCREMENT':
@@ -46,9 +51,9 @@ ReactDOM.render(
 
 // let store = createStore(counter);
 
-// //Display
+//*******************************/Display/********************************/
 // store.subscribe(() =>console.log(store.getState()));
 
-// //Dispatch
+//*****************************/Dispatch/****************************** */
 // store.dispatch(increment());
 // store.dispatch(decrement());
