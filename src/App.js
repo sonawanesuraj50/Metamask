@@ -4,8 +4,8 @@ import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {increment} from './actions';
 import { decrement } from './actions';
-import { Nav, AppHeader} from './Nav/TopNav';
-import NavBar from './Nav/NavBar'
+import NavBar from "./Nav/NavBar";
+import { AppHeader,FlexContainer,GlobalStyle } from "./Styles/NavBar.styles";
 
 
 function App() {
@@ -58,8 +58,10 @@ function App() {
 
 
   return (<>
-    <NavBar>    
-    </NavBar>
+   
+    <GlobalStyle whiteColor/>
+    <NavBar/> 
+      <FlexContainer>
       <AppHeader>        
         {typeof window.web3 !== 'undefined' ?  
         <>
@@ -88,12 +90,14 @@ function App() {
             <button onClick={()=> distpatch(increment())}>+</button>
             <button onClick={()=> distpatch(decrement())}>-</button>
 
-            <Nav>Logdin{loggedInn}</Nav>
+            Logdin{loggedInn}
         </>
         :
         'MetaMask is not installed!'          
         }
       </AppHeader>
+      </FlexContainer>
+
     </>
   );
 }

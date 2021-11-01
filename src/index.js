@@ -6,6 +6,7 @@ import { createStore,applyMiddleware,compose } from 'redux';
 import rootReducers from './reducers';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import NavBar from './Nav/NavBar';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
