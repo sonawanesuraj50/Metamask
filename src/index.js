@@ -6,7 +6,6 @@ import { createStore,applyMiddleware,compose } from 'redux';
 import rootReducers from './reducers';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import NavBar from './Nav/NavBar';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -15,7 +14,7 @@ const store = createStore(rootReducers,
             );
 
 
-
+console.log(store.getState(),'store----')
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>

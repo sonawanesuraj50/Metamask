@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-
+import { 
+    Link
+  } from "react-router-dom";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -62,7 +64,7 @@ export const Menu = styled.div`
     }
 `;
 
-export const MenuLinks = styled.a`
+export const MenuLinks = styled(Link)`
     padding: 1em 1em;
     text-decoration: none;
     cursor: pointer;
