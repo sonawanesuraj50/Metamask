@@ -8,19 +8,13 @@ import {
     ToggleButton
 } from "../Styles/NavBar.styles";
 import { useSelector } from 'react-redux';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route    
-  } from "react-router-dom";
-
 
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);
     const counter = useSelector(state => state.counters)
     return (
-        <Router>
+        <>
             <Nav>
                 <Logo href="">
                     Logo
@@ -39,18 +33,7 @@ const NavBar = () => {
                     <h3 style={{color:"black"}}>{counter}</h3>
                 </Menu>
             </Nav>
-
-            <Routes>
-            <Route path="/about" element={<h4>This is About Page</h4>}>               
-            </Route>
-            <Route path="/contact" element={<h4>This is Contact Page</h4>}>               
-            </Route>
-            <Route path="/product" element={<h4>This is Product Page</h4>}>            
-            </Route>
-            <Route path="/" element={<h4>This is Home Page</h4>} />                
-            </Routes>
-
-        </Router>
+        </>
     )
 }
 

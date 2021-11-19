@@ -13,8 +13,6 @@ const store = createStore(rootReducers,
               composeEnhancers(applyMiddleware(thunk))
             );
 
-
-console.log(store.getState(),'store----')
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
