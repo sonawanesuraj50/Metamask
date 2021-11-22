@@ -6,11 +6,13 @@ import {
   Routes,
   Route    
 } from "react-router-dom";
+import { GlobalStyle } from "./Styles/NavBar.styles";
 
 
 function App() {
   return (
     <Router basename="/Metamask">
+      <GlobalStyle whiteColor/>
       <NavBar />
       <Routes>
             <Route path="/about" element={<h4>This is About Page</h4>}>               

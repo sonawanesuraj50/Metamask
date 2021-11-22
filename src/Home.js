@@ -4,7 +4,7 @@ import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {increment,decrement} from './actions';
 // import NavBar from "./Nav/NavBar";
-import { AppHeader,FlexContainer,GlobalStyle } from "./Styles/NavBar.styles";
+import { AppHeader,FlexContainer } from "./Styles/NavBar.styles";
 //import ContractAbi from './Contract/ContractAbi.json';
 import BscContract from './Contract/ContractAbi.json'
 import { BigNumber } from "bignumber.js";
@@ -104,9 +104,7 @@ let x = new BigNumber(123).plus(10);
 console.log(x,'BigNumber--------------',)
 
   return (
-    <>   
-    <GlobalStyle whiteColor/>
-    {/* <NavBar/>  */}
+    <> 
       <FlexContainer>
       <AppHeader>        
         {typeof window.web3 !== 'undefined' ?  
