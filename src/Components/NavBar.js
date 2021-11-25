@@ -5,9 +5,10 @@ import {
     Menu,
     MenuLinks,
     Logo, 
-    ToggleButton
+    // ToggleButton
 } from "../Styles/NavBar.styles";
 import { useSelector } from 'react-redux';
+import {Toggle} from '../Styles/Toggle';
 
 
 const NavBar = () => {
@@ -26,10 +27,10 @@ const NavBar = () => {
                 </HamBurger>
                 <Menu open={open}>
                     <MenuLinks to="/">Home</MenuLinks>
-                    <MenuLinks to="/about">About</MenuLinks>
+                    <MenuLinks to="/component">Component</MenuLinks>
                     <MenuLinks to="/product">Product</MenuLinks>
                     <MenuLinks to="/contact">Contact</MenuLinks>
-                    <ToggleButton />
+                    <Toggle />
                     <h3 style={{color:"black"}}>{counter}</h3>
                 </Menu>
             </Nav>

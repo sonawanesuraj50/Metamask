@@ -1,17 +1,8 @@
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
 import { 
     Link
   } from "react-router-dom";
 
-export const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => (props.whiteColor ? 'rgb(40, 44, 52)' : 'white')};  
-    color: ${props => (props.whiteColor ? 'white' : 'black')};
-    width: 100vw; 
-    height: 100vh;
-  }
-`
 export const FlexContainer = styled.div`
     width: 100%;
     height: calc(100vh - 65px);
@@ -88,4 +79,12 @@ export const ToggleButton = styled.button`
     height: 25px;
     border-radius: 40%;
     background-color: ${props => (props.whiteColor ? 'rgb(40, 44, 52)' : 'white')};  
+`;
+
+export const ButtonDiv = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 0px;
 `;

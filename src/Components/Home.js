@@ -2,12 +2,13 @@ import Web3 from "web3";
 import detectEthereumProvider from '@metamask/detect-provider';
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {increment,decrement} from './actions';
+import {increment,decrement} from '../actions';
 // import NavBar from "./Nav/NavBar";
-import { AppHeader,FlexContainer } from "./Styles/NavBar.styles";
+import { AppHeader,FlexContainer } from "../Styles/NavBar.styles";
 //import ContractAbi from './Contract/ContractAbi.json';
-import BscContract from './Contract/ContractAbi.json'
+import BscContract from '../Contract/ContractAbi.json';
 import { BigNumber } from "bignumber.js";
+import { Button } from '../Styles/Button.styles';
 
 function Home() {
     const [accounts,setAccounts] = useState('');
@@ -110,9 +111,9 @@ console.log(x,'BigNumber--------------',)
         {typeof window.web3 !== 'undefined' ?  
         <>
           'MetaMask is installed!'
-          <button style={{display:'block'}} onClick={metamaskConnect}>
+          <Button style={{display:'block'}} onClick={metamaskConnect}>
             Connect To MetaMask
-          </button>
+          </Button>
           <div>
             Address:-{accounts !== 'undefined' && accounts}
           </div>
@@ -121,12 +122,12 @@ console.log(x,'BigNumber--------------',)
           </div>  
           {accounts !== '' && 
           <>
-            <button style={{display:'block'}} onClick={metaMaskDissconnect}>
+            <Button error style={{display:'block'}} onClick={metaMaskDissconnect}>
               Dissconnect From MetaMask   
-            </button> 
-            <button style={{display:'block'}} onClick={getBalanced}>
+            </Button> 
+            <Button secondary style={{display:'block'}} onClick={getBalanced}>
               Get Account Balanced  
-            </button> 
+            </Button> 
             {getBalance}
               </>
             }   
@@ -143,7 +144,7 @@ console.log(x,'BigNumber--------------',)
             <option value="0x38">BSC</option>
             <option value="0x89">Polygon</option>   
           </select > 
-          <button onClick={sendConracts}>Contract Intraction</button>
+          <Button onClick={sendConracts}>Contract Intraction</Button>
             {x.toNumber()}
             <div>
               {name && name}
