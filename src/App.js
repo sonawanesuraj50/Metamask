@@ -9,7 +9,7 @@ import {
 import { createGlobalStyle, ThemeProvider} from "styled-components";
 import Component from './Components/Components';
 import DarkTheme from './Styles/DarkTheme';
-import LightTheme from './Styles/LightTheme';
+//import LightTheme from './Styles/LightTheme';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <ThemeProvider theme={LightTheme}>
+    <ThemeProvider theme={DarkTheme}>
       <GlobalStyle />
       <Router basename="/Metamask">
         <NavBar />

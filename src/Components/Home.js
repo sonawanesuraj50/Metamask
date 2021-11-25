@@ -9,6 +9,7 @@ import { AppHeader,FlexContainer } from "../Styles/NavBar.styles";
 import BscContract from '../Contract/ContractAbi.json';
 import { BigNumber } from "bignumber.js";
 import { Button } from '../Styles/Button.styles';
+import { Typography } from "../Styles/Typography.styles";
 
 function Home() {
     const [accounts,setAccounts] = useState('');
@@ -110,16 +111,16 @@ console.log(x,'BigNumber--------------',)
       <AppHeader>        
         {typeof window.web3 !== 'undefined' ?  
         <>
-          'MetaMask is installed!'
+          <Typography>'MetaMask is installed!'</Typography>
           <Button style={{display:'block'}} onClick={metamaskConnect}>
             Connect To MetaMask
           </Button>
-          <div>
+          <Typography>
             Address:-{accounts !== 'undefined' && accounts}
-          </div>
-          <div>
+          </Typography>
+          <Typography>
             Chain Id:-{chainid !== 'undefined' && chainid}
-          </div>  
+          </Typography>  
           {accounts !== '' && 
           <>
             <Button error style={{display:'block'}} onClick={metaMaskDissconnect}>
@@ -131,7 +132,7 @@ console.log(x,'BigNumber--------------',)
             {getBalance}
               </>
             }   
-            <h2>counter{counter}</h2>
+            <Typography>counter{counter}</Typography>
             <button onClick={()=> distpatch(increment())}>+</button>
             <button onClick={()=> distpatch(decrement())}>-</button>
 
@@ -145,13 +146,13 @@ console.log(x,'BigNumber--------------',)
             <option value="0x89">Polygon</option>   
           </select > 
           <Button onClick={sendConracts}>Contract Intraction</Button>
-            {x.toNumber()}
-            <div>
+          <Typography>{x.toNumber()}</Typography>
+            <Typography>
               {name && name}
-            </div>
+            </Typography>
       </>
         :
-        'MetaMask is not installed!'          
+        <Typography>'MetaMask is not installed!'</Typography>          
         }
       </AppHeader>
       </FlexContainer>

@@ -96,6 +96,7 @@ export const Button = styled.button`
   `}
   ${props => props.text && css`
     background-color: inherit;
+    box-shadow: none;
     color: ${props => props.secondary ? props.theme.secondary : props.error ? props.theme.error : props.theme.primary}
   `}
 `;
