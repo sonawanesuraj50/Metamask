@@ -108,53 +108,51 @@ console.log(x,'BigNumber--------------',)
   return (
     <> 
       <FlexContainer>
-      <AppHeader>        
-        {typeof window.web3 !== 'undefined' ?  
-        <>
-          <Typography>'MetaMask is installed!'</Typography>
-          <Button style={{display:'block'}} onClick={metamaskConnect}>
-            Connect To MetaMask
-          </Button>
-          <Typography>
-            Address:-{accounts !== 'undefined' && accounts}
-          </Typography>
-          <Typography>
-            Chain Id:-{chainid !== 'undefined' && chainid}
-          </Typography>  
-          {accounts !== '' && 
-          <>
-            <Button error style={{display:'block'}} onClick={metaMaskDissconnect}>
-              Dissconnect From MetaMask   
-            </Button> 
-            <Button secondary style={{display:'block'}} onClick={getBalanced}>
-              Get Account Balanced  
-            </Button> 
-            {getBalance}
-              </>
-            }   
-            <Typography>counter{counter}</Typography>
-            <button onClick={()=> distpatch(increment())}>+</button>
-            <button onClick={()=> distpatch(decrement())}>-</button>
-
-  
-          <select onChange={(event)=>changeNetwork(event.target.value)} value={(event)=>{console.log(event)}}>
-            <option value="" hidden>
-              Switch Newtork
-            </option>
-            <option value="0x1">Ethereum Mainnet</option>
-            <option value="0x38">BSC</option>
-            <option value="0x89">Polygon</option>   
-          </select > 
-          <Button onClick={sendConracts}>Contract Intraction</Button>
-          <Typography>{x.toNumber()}</Typography>
-            <Typography>
-              {name && name}
-            </Typography>
-      </>
-        :
-        <Typography>'MetaMask is not installed!'</Typography>          
-        }
-      </AppHeader>
+        <AppHeader>        
+          {typeof window.web3 !== 'undefined' ?  
+            <>
+              <Typography>'MetaMask is installed!'</Typography>
+              <Button style={{display:'block'}} onClick={metamaskConnect}>
+                Connect To MetaMask
+              </Button>
+              <Typography>
+                Address:-{accounts !== 'undefined' && accounts}
+              </Typography>
+              <Typography>
+                Chain Id:-{chainid !== 'undefined' && chainid}
+              </Typography>  
+              {accounts !== '' && 
+                <>
+                  <Button error style={{display:'block'}} onClick={metaMaskDissconnect}>
+                    Dissconnect From MetaMask   
+                  </Button> 
+                  <Button secondary style={{display:'block'}} onClick={getBalanced}>
+                    Get Account Balanced  
+                  </Button> 
+                  <Typography>{getBalance}</Typography>
+                </>
+              }   
+              <Typography>counter{counter}</Typography>
+              <button onClick={()=> distpatch(increment())}>+</button>
+              <button onClick={()=> distpatch(decrement())}>-</button>  
+              <select onChange={(event)=>changeNetwork(event.target.value)} value={(event)=>{console.log(event)}}>
+                <option value="" hidden>
+                  Switch Newtork
+                </option>
+                <option value="0x1">Ethereum Mainnet</option>
+                <option value="0x38">BSC</option>
+                <option value="0x89">Polygon</option>   
+              </select > 
+              <Button onClick={sendConracts}>Contract Intraction</Button>
+              <Typography>{x.toNumber()}</Typography>
+                <Typography>
+                  {name && name}
+                </Typography>
+            </>
+            :
+            <Typography>'MetaMask is not installed!'</Typography>          
+          }
+        </AppHeader>
       </FlexContainer>
   </>
   );

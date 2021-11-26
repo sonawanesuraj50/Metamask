@@ -44,14 +44,15 @@ export const Button = styled.button`
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
-   :disabled {
+  width: ${props => props.width};
+  :disabled {
      opacity: 0.4;
      cursor: not-allowed;
      pointer-events: auto;
      :hover{
        box-shadow: none;
      }
-   }
+  }
   &:hover{
     box-shadow: inset 0px 0px 5px 20px rgb(0 0 0 / 8%);
   }
@@ -59,10 +60,10 @@ export const Button = styled.button`
     background-color: gray;
   }
   ${props => props.animate && css`
-  &:hover {
-    box-shadow: inset 19px 20px 7px 20px rgb(0 0 0 / 8%);
-    transform: translate(0, -4px);
-  }
+    &:hover {
+      box-shadow: inset 19px 20px 7px 20px rgb(0 0 0 / 8%);
+      transform: translate(0, -4px);
+    }
   `}
   ${props => props.secondary && css`
     background: ${props => props.theme.secondary};
