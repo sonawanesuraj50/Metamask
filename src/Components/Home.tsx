@@ -11,30 +11,35 @@ import { BigNumber } from "bignumber.js";
 import { Button } from '../Styles/Button.styles';
 import { Typography } from "../Styles/Typography.styles";
 
-function Home() {
-    const [accounts,setAccounts] = useState('');
-  const [chainid,setChainId] = useState();
-  const [getBalance,SetGetBalanced] = useState(); 
-  const [name,setName] = useState(); 
+let web3: any;
+declare let window: any;
 
-  const counter = useSelector(state => state.counters) 
+function Home() {
+  const [accounts,setAccounts] = useState<any>('');
+  const [chainid,setChainId] = useState<any>();
+  const [getBalance,SetGetBalanced] = useState<any>(); 
+  const [name,setName] = useState<any>(); 
+
+
+  
+  const counter:any = useSelector((state:any) => state.counters) 
 
   const distpatch = useDispatch();
-  var web3;
+
   //const ContractAddress = "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72";
   const bscContractAddress = "0x35C330cb11F9A6a0DBd4A9138B505a26eA00c5C0";
 
   useEffect(() => {
     async function init(){
-      var ethereum = await detectEthereumProvider();
-     var web3 = new Web3(window.ethereum);
+    var ethereum:any = await detectEthereumProvider();
+     web3 = new Web3(window.ethereum);
       web3.currentProvider.on("accountsChanged", async function () {
         let accounts = await web3.eth.getAccounts();
         var networkId = await web3.eth.net.getId();
         setAccounts(accounts);
         setChainId(networkId);       
       });
-      ethereum.on('chainChanged', (chainId) => {
+      ethereum.on('chainChanged', (chainId:any) => {
         setChainId(chainId)
       });
       var Contract = new web3.eth.Contract(BscContract,bscContractAddress);
@@ -48,18 +53,18 @@ function Home() {
 
 
   var  metamaskConnect = async () =>{  
-    const ethereum = await detectEthereumProvider();
+    let ethereum:any = await detectEthereumProvider();
     web3 = new Web3(window.ethereum);
-    const account = await ethereum.request({ method: 'eth_requestAccounts' });
+    let account = await ethereum.request({ method: 'eth_requestAccounts' });
     setAccounts(account[0]);
-    const chainid = await web3.eth.net.getId();
+    let chainid = await web3.eth.net.getId();
     setChainId(chainid)
     console.log(web3.currentProvider,'currentProvider');  
  
   }
 
   var metaMaskDissconnect = async () => {
-    web3 = new Web3(window.ethereum);
+     web3 = new Web3(window.ethereum);
      await web3.currentProvider._handleDisconnect();
      localStorage.clear();
      setAccounts('')
@@ -74,7 +79,7 @@ function Home() {
     SetGetBalanced(ethBalance);
  }
 
- const changeNetwork = async (chainId) => {
+ const changeNetwork = async (chainId:any) => {
   if (window.ethereum) {
     try {
        await window.ethereum.request({
@@ -88,18 +93,18 @@ function Home() {
 };
 
 const sendConracts = async()=> {
-  var web3 = new Web3(window.ethereum);
-  var Contract = new web3.eth.Contract(BscContract,bscContractAddress);
-    const result = await Contract.methods.createPool(
-    "Suraj",
-    "0x637F61C18Cd7259f7c5EA50591C7Befe6A2E0BfE",
-    1637143135,
-    10
-    )
-    .send({
-    from: "0x560C4E192cEEeB948CCE7C26002A0E2934673216",
-    });
-    console.log(result)
+ web3 = new Web3(window.ethereum);
+  // var Contract = new web3.eth.Contract(BscContract,bscContractAddress);
+  //   const result = await Contract.methods.createPool(
+  //   "Suraj",
+  //   "0x637F61C18Cd7259f7c5EA50591C7Befe6A2E0BfE",
+  //   1637143135,
+  //   10
+  //   )
+  //   .send({
+  //   from: "0x560C4E192cEEeB948CCE7C26002A0E2934673216",
+  //   });
+  //   console.log(result)
 }
 
 let x = new BigNumber(123).plus(10);
@@ -135,7 +140,7 @@ console.log(x,'BigNumber--------------',)
               <Typography>counter{counter}</Typography>
               <button onClick={()=> distpatch(increment())}>+</button>
               <button onClick={()=> distpatch(decrement())}>-</button>  
-              <select onChange={(event)=>changeNetwork(event.target.value)} value={(event)=>{console.log(event)}}>
+              <select onChange={(event)=>changeNetwork(event.target.value)}>
                 <option value="" hidden>
                   Switch Newtork
                 </option>

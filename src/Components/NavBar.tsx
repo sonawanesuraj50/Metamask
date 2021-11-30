@@ -8,12 +8,12 @@ import {
     // ToggleButton
 } from "../Styles/NavBar.styles";
 import { useSelector } from 'react-redux';
-import {Toggle} from '../Styles/Toggle';
+// import {Toggle} from '../Styles/Toggle';
 
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);
-    const counter = useSelector(state => state.counters)
+    const counter = useSelector((state:any) => state.counters)
     return (
         <>
             <Nav>
@@ -30,7 +30,7 @@ const NavBar = () => {
                     <MenuLinks to="/component">Component</MenuLinks>
                     <MenuLinks to="/product">Product</MenuLinks>
                     <MenuLinks to="/contact">Contact</MenuLinks>
-                    <Toggle />
+                    {/* <Toggle /> */}
                     <h3 style={{color:"black"}}>{counter}</h3>
                 </Menu>
             </Nav>

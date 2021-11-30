@@ -6,10 +6,10 @@ export const Typography = styled.text`
   font-weight: 500;
   font-family: ${props => props.theme.fontFamily};
   text-transform: capitalize;
-  ${props => props.small && css`
+  ${(props:any) => props.small && css`
     font-size: 0.5rem;
   `}
-  ${props => props.large && css`
+  ${(props:any) => props.large && css`
     font-size: 1.5rem;
   `}
 `;

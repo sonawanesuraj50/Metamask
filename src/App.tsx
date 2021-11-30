@@ -9,10 +9,11 @@ import {
 import { createGlobalStyle, ThemeProvider} from "styled-components";
 import Component from './Components/Components';
 import DarkTheme from './Styles/DarkTheme';
+// import { Theme } from "./Styles/NavBar.styles";
 //import LightTheme from './Styles/LightTheme';
 
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<any>`
   body {
     background-color: ${props => props.theme.backgroundColor};  
     color: ${props => (props.dark ? 'white' : 'black')};
@@ -30,7 +31,7 @@ function App() {
   return (
     <ThemeProvider theme={DarkTheme}>
       <GlobalStyle />
-      <Router basename="/Metamask">
+      <Router basename="Metamask">
         <NavBar />
         <Routes>
               <Route path="/component" element={<Component />}>               

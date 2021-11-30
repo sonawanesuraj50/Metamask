@@ -1,36 +1,18 @@
 import styled,{css} from "styled-components";
 
+interface ButtonProps {
+  animate: string;
+  width: string;
+  secondary: string;
+  error: string;
+  outline: string;
+  small: string;
+  large: string;
+  round: string;
+  text: string;
+}
 
-// export const Button = styled.button`
-//   background: #1266F1;
-//   color: white;
-//   border-radius: 4px;
-//   padding: 6px 16px;
-//   font-size: 14px;
-//   text-transform: capitalize;
-//   border-radius: ${props => (props.round ? '50%' : '7px')};
-//   :disabled {
-//     opacity: 0.4;
-//     :hover{
-//       box-shadow: none;
-//     }
-//   }
-//   :hover{
-//     box-shadow: inset 0 0 0 20rem var(--darken-2),
-//     inset 0 3px 4px 0 var(--darken-3),
-//     0 0 1px var(--darken-2);
-//   }
-//   ${props => props.secondary && css`
-//     background: #B23CFD;
-//     color: white;
-//   `}
-//   ${props => props.error && css`
-//     background: #e5195f;
-//     color: white;
-//   `}`;
-
-
-export const Button = styled.button`
+export const Button = styled.button<any>`
   display: block;
   padding: 0.5em 1.2em;
   text-transform: capitalize;
@@ -98,7 +80,7 @@ export const Button = styled.button`
   ${props => props.text && css`
     background-color: inherit;
     box-shadow: none;
-    color: ${props => props.secondary ? props.theme.secondary : props.error ? props.theme.error : props.theme.primary}
+    color: ${(props:any) => props.secondary ? props.theme.secondary : props.error ? props.theme.error:   props.theme.primary};
   `}
 `;
 

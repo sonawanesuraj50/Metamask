@@ -41,7 +41,7 @@ export const HamBurger = styled.div`
     }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled.div<any>`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,7 +74,7 @@ export const Logo =styled.a`
     font-size: 1.2em;
 `;
 
-export const ToggleButton = styled.button`
+export const ToggleButton = styled.button<any>`
     width: 25px;
     height: 25px;
     border-radius: 40%;
@@ -88,3 +88,14 @@ export const ButtonDiv = styled.div`
     flex-wrap: wrap;
     padding: 15px 0px;
 `;
+
+
+export interface Theme {
+    backgroundColor?: string;
+    secondary?: string;
+    primary?: string;
+    text?: string;
+    error?: string;
+    textColor?: string;
+    fontFamily?: string;
+  }

@@ -7,18 +7,16 @@ import rootReducers from './reducers';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducers,
               composeEnhancers(applyMiddleware(thunk))
             );
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store = {store}>
     <App/>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
 

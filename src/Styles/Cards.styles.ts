@@ -1,7 +1,7 @@
 import styled,{css} from "styled-components";
 
 
-export const StyledCard = styled.article`
+export const StyledCard = styled.article<any>`
     width:90vw;
     max-width: 30rem;
     background: white;
@@ -17,7 +17,7 @@ export const StyledCard = styled.article`
         align-items: center;
         padding: 0 2rem;
         h4{
-            color: ${props => !props.theme.textColor};
+            color: ${(props:any):any => !props.theme.textColor};
             text-transform: capitalize;        
         }
     }
@@ -76,7 +76,7 @@ export const Form = styled.form`
     border-radius: 4px;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<any>`
     padding: 4px 8px;
     max-width: 30rem;
     border: 1px solid #ccc;
