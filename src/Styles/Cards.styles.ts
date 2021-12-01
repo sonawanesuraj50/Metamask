@@ -1,4 +1,5 @@
 import styled,{css} from "styled-components";
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 export const StyledCard = styled.article<any>`
@@ -88,3 +89,48 @@ export const Input = styled.input<any>`
     box-sizing: border-box;
     height: 40px;
 `;
+
+
+/************************************************* */
+
+export const CardComponent = styled.article<any>`
+    width:90vw;
+    max-width: 30rem;
+    background: white;
+    border-radius: 0.5rem;    
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0.5rem;
+        font-weight: 600;
+        color: ${(props:any):any => !props.theme.textColor};
+        text-transform: capitalize; 
+        background-color:lightgray;
+        border-radius: 0.5rem 0.5rem 0  0;
+    }
+    img{
+        width: 100%;
+        border-top-left-radius: 0%.25rem;
+        border-top-right-radius: 0%.25rem;
+    }
+    footer{
+        padding: 0 0.5rem;
+        h4{
+            color: ${(props:any):any => !props.theme.textColor};
+            text-transform: capitalize;        
+        }
+        text{
+      
+        }
+    }
+    transition:all 0.5s ease-in-out; &:hover{
+        box-shadow: 0 3px 3px ${props => props.theme.textColor};
+        cursor: pointer;         
+        transform: translate(0, -4px);
+    }
+`;
+
+export const Clear = styled(ClearIcon)`
+    color: ${(props:any):any => !props.theme.textColor}
+`

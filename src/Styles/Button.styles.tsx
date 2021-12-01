@@ -13,7 +13,8 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<any>`
-  display: block;
+  display: flex;
+  justify-content: center;
   padding: 0.5em 1.2em;
   text-transform: capitalize;
   font-family: ${props => props.theme.fontFamily};
@@ -40,6 +41,21 @@ export const Button = styled.button<any>`
   }
   &:active{
     background-color: gray;
+  }
+  svg{
+    margin-top:auto ;
+    width: 1rem;
+    height: 1rem;
+    color: ${(props:any):any => !props.theme.textColor};
+    margin-left: 0.2rem;
+    ${props => props.small && css`
+      width: 0.7rem;
+      height: 0.7rem;
+    `}
+    ${props => props.large && css`
+      width: 1.4rem;
+      height: 1.4rem;
+    `}
   }
   ${props => props.animate && css`
     &:hover {
