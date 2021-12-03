@@ -92,6 +92,69 @@ export const Input = styled.input<any>`
 
 
 /************************************************* */
+export const StyledCardComponent = styled.article<any>`
+    width:90vw;
+    max-width: 16rem;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    font-family: Roboto;
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;        
+        padding: 0.7rem;
+        img {      
+            width: 2.5rem;
+            margin: 0 11px 0 0; 
+            border-radius: 50%;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column; 
+            text{
+                font-weight: bold;            
+                line-height: 19px;           
+                color: #000000;
+            }
+            small{              
+                font-size: 12px;
+                color: #828282;               
+            }
+        }
+    }
+    img{
+        width: 100%; 
+    }
+    footer{
+        display: flex;
+        flex-direction: column; 
+        font-weight: bold;
+        font-size: 24px;    
+        color: #000000;
+        padding: 0.7rem;
+        title{
+            display: block;
+        }
+        small{
+            font-size: 14px;           
+            color: #4F4F4F;
+            margin: 5px 0 5px 0;
+        }
+        text{
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+            color: #333333;
+        }
+    }
+    :hover{
+        cursor: pointer;
+    }
+`;
+
+/*********************************************** */
 
 export const CardComponent = styled.article<any>`
     width:90vw;
@@ -133,4 +196,4 @@ export const CardComponent = styled.article<any>`
 
 export const Clear = styled(ClearIcon)`
     color: ${(props:any):any => !props.theme.textColor}
-`
+`;

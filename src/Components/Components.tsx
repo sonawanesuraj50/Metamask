@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Button } from '../Styles/Button.styles';
-import { CardComponent, Form, Input, StyledCard } from "../Styles/Cards.styles";
+import { CardComponent, Form, Input, StyledCard, StyledCardComponent } from "../Styles/Cards.styles";
 import { ButtonDiv } from "../Styles/NavBar.styles";
 import { Typography } from "../Styles/Typography.styles";
 import Clear from "@mui/icons-material/Clear";
@@ -94,6 +94,21 @@ function Component() {
                     </ButtonDiv>
                 </footer>
             </CardComponent>
+            <StyledCardComponent>
+            <header>
+                <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"/>  
+                <div>
+                    <text>Stuar Manson</text>
+                    <small>Publicado hace 2 horas</small>        
+                </div>      
+            </header>
+            <img src="https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b" alt="Product"/>
+            <footer>
+                <title>Flores</title> 
+                <small>by Stuar Manson</small>
+                <text>Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality</text>
+            </footer>
+        </StyledCardComponent>
         </ButtonDiv>
     </div>
   );

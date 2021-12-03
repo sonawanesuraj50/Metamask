@@ -3,7 +3,6 @@ import detectEthereumProvider from '@metamask/detect-provider';
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {increment,decrement} from '../actions';
-import { useWeb3React } from "@web3-react/core"
 import { AppHeader,FlexContainer } from "../Styles/NavBar.styles";
 //import ContractAbi from './Contract/ContractAbi.json';
 import BscContract from '../Contract/ContractAbi.json';
@@ -23,7 +22,6 @@ function Home() {
   const counter:any = useSelector((state:any) => state.counters) 
 
   const distpatch = useDispatch();
-  const { active, account, library, connector, activate, deactivate } = useWeb3React();
 
   //const ContractAddress = "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72";
   const bscContractAddress = "0x35C330cb11F9A6a0DBd4A9138B505a26eA00c5C0";
@@ -93,20 +91,19 @@ function Home() {
 const sendConracts = async()=> {
   web3 = new Web3(window.ethereum);
   var Contract = new web3.eth.Contract(BscContract,bscContractAddress);
-    const result = await Contract.methods.createPool(
+  const result = await Contract.methods.createPool(
     "Suraj",
     "0x637F61C18Cd7259f7c5EA50591C7Befe6A2E0BfE",
     1637143135,
     10
-    )
-    .send({
+  )
+  .send({
     from: "0x560C4E192cEEeB948CCE7C26002A0E2934673216",
-    });
-    console.log(result)
+  });
+  console.log(result)
 }
 
 let x = new BigNumber(123).plus(10);
-console.log(x,'BigNumber--------------',)
 
   return (
     <> 
@@ -141,11 +138,11 @@ console.log(x,'BigNumber--------------',)
               <select onChange={(event)=>changeNetwork(event.target.value)}>
                 <option value="" hidden>
                   Switch Newtork
-                </option>
+                </option>  
                 <option value="0x1">Ethereum Mainnet</option>
                 <option value="0x38">BSC</option>
                 <option value="0x89">Polygon</option>   
-              </select > 
+              </select >
               <Button onClick={sendConracts}>Contract Intraction</Button>
               <Typography>{x.toNumber()}</Typography>
                 <Typography>
