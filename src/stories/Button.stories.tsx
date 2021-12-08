@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "../Styles/Button.styles";
 import { ThemeProvider } from "styled-components";
 import LightTheme from '../Styles/LightTheme';
-import { primary } from "./StyledButton.stories";
 import { StyledCardComponent } from "../Styles/Cards.styles";
 
 
@@ -17,7 +16,7 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args:any) => (
     <ThemeProvider theme={LightTheme}>
-        <StyledCardComponent args>
+        <StyledCardComponent>
             <header>
                 <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"/>  
                 <div>
@@ -29,7 +28,9 @@ const Template: ComponentStory<typeof Button> = (args:any) => (
             <footer>
                 <title>Flores</title> 
                 <small>by Stuar Manson</small>
-                <text>Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality</text>
+                <text>
+                    Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality
+                </text>
             </footer>
         </StyledCardComponent>
     </ThemeProvider>

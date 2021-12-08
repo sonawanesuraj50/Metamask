@@ -126,6 +126,7 @@ export const StyledCardComponent = styled.article<any>`
     }
     img{
         width: 100%; 
+        max-width: 16rem;
     }
     footer{
         display: flex;
@@ -145,7 +146,7 @@ export const StyledCardComponent = styled.article<any>`
         text{
             font-weight: normal;
             font-size: 12px;
-            line-height: 14px;
+            line-height: 15px;
             color: #333333;
         }
     }

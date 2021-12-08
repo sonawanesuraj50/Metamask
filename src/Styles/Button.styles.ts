@@ -1,17 +1,5 @@
 import styled,{css} from "styled-components";
 
-interface ButtonProps {
-  animate: string;
-  width: string;
-  secondary: string;
-  error: string;
-  outline: string;
-  small: string;
-  large: string;
-  round: string;
-  text: string;
-}
-
 export const Button = styled.button<any>`
   display: flex;
   justify-content: center;

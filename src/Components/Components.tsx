@@ -5,6 +5,7 @@ import { ButtonDiv } from "../Styles/NavBar.styles";
 import { Typography } from "../Styles/Typography.styles";
 import Clear from "@mui/icons-material/Clear";
 import HomeIcon from '@mui/icons-material/Home';
+import { GridContainer, GridItem } from '../Styles/Grid.styles';
 
 
 
@@ -95,21 +96,37 @@ function Component() {
                 </footer>
             </CardComponent>
             <StyledCardComponent>
-            <header>
-                <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"/>  
-                <div>
-                    <text>Stuar Manson</text>
-                    <small>Publicado hace 2 horas</small>        
-                </div>      
-            </header>
-            <img src="https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b" alt="Product"/>
-            <footer>
-                <title>Flores</title> 
-                <small>by Stuar Manson</small>
-                <text>Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality</text>
-            </footer>
-        </StyledCardComponent>
+                <header>
+                    <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"/>  
+                    <div>
+                        <text>Stuar Manson</text>
+                        <small>Publicado hace 2 horas</small>        
+                    </div>      
+                </header>
+                <img src="https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b" alt="Product"/>
+                <footer>
+                    <title>Flores</title> 
+                    <small>by Stuar Manson</small>
+                    <text>
+                        Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality
+                    </text>
+                </footer>
+            </StyledCardComponent>
         </ButtonDiv>
+        <GridContainer space="1rem">
+            <GridItem>
+                1
+            </GridItem>
+            <GridItem>
+                2
+            </GridItem>
+            <GridItem>
+                3
+            </GridItem>
+            <GridItem>
+                4
+            </GridItem>
+        </GridContainer>
     </div>
   );
 }

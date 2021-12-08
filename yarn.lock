@@ -2209,6 +2209,11 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@pacote/react-with-props@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@pacote/react-with-props/-/react-with-props-1.1.10.tgz#c87a409c56b943c4b53c07d938195973f85f4946"
+  integrity sha512-KwArDVVx5Z/HZ2pTxLdbzINzNFmYawDJ/HmiJJQzJmJp0l7ZMR6a0zkbUQsgqApfDJWr/3hfDKyGjpfixIF62A==
+
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3", "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"

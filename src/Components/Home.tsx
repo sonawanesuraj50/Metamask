@@ -9,9 +9,16 @@ import BscContract from '../Contract/ContractAbi.json';
 import { BigNumber } from "bignumber.js";
 import { Button } from '../Styles/Button.styles';
 import { Typography } from "../Styles/Typography.styles";
+import { useWeb3React } from "@web3-react/core";
+import { InjectedConnector } from '@web3-react/injected-connector';
 
 let web3: any;
 declare let window: any;
+
+const injected = new InjectedConnector({
+  supportedChainIds: [1, 3, 4, 56, 97, 42,137],
+})
+
 
 function Home() {
   const [accounts,setAccounts] = useState<any>('');
@@ -20,6 +27,7 @@ function Home() {
   const [name,setName] = useState<any>(); 
   
   const counter:any = useSelector((state:any) => state.counters) 
+  const { active, account, library, connector, activate, deactivate } = useWeb3React<any>()
 
   const distpatch = useDispatch();
 
@@ -43,36 +51,47 @@ function Home() {
       var ContractName = await Contract.methods.INIT_CODE_PAIR_HASH().call();
 
       setName(ContractName)
-     // console.log(result,'sendConract---------------')
     }
     init()
   },[accounts,name])
 
 
   var  metamaskConnect = async () =>{  
-    let ethereum:any = await detectEthereumProvider();
-    web3 = new Web3(window.ethereum);
-    let account = await ethereum.request({ method: 'eth_requestAccounts' });
-    setAccounts(account[0]);
-    let chainid = await web3.eth.net.getId();
-    setChainId(chainid)
-    console.log(web3.currentProvider,'currentProvider');   
+    // let ethereum:any = await detectEthereumProvider();
+    // web3 = new Web3(window.ethereum);
+    // let account = await ethereum.request({ method: 'eth_requestAccounts' });
+    try {
+      await activate(injected)
+      setAccounts(account);
+      let chainid = await web3.eth.net.getId();
+      setChainId(chainid)
+      console.log(account,library,'account','library'); 
+  } catch (ex) {
+      console.log(ex)
+  }  
   }
 
   var metaMaskDissconnect = async () => {
-     web3 = new Web3(window.ethereum);
-     await web3.currentProvider._handleDisconnect();
+    //  web3 = new Web3(window.ethereum);
+    //  await web3.currentProvider._handleDisconnect();
+    try {
+      deactivate()   
      localStorage.clear();
      setAccounts('')
      setChainId('')
      window.location.reload();
+    } catch (ex) {
+      console.log(ex)
+    }
   }
  
   var getBalanced = async () => {
-    web3 = new Web3(window.ethereum);
-    var balance = await web3.eth.getBalance(accounts) 
-    var ethBalance = await web3.utils.fromWei(balance,'ether')
-    SetGetBalanced(ethBalance);
+    // web3 = new Web3(window.ethereum);
+    // var balance = await web3.eth.getBalance(accounts) 
+    // var ethBalance = await web3.utils.fromWei(balance,'ether')
+    library.eth.getBalance(account).then((balance:any)=>{
+      SetGetBalanced(library.utils.fromWei(balance,'ether'));
+    });   
  }
 
  const changeNetwork = async (chainId:any) => {
@@ -89,8 +108,8 @@ function Home() {
 };
 
 const sendConracts = async()=> {
-  web3 = new Web3(window.ethereum);
-  var Contract = new web3.eth.Contract(BscContract,bscContractAddress);
+  //web3 = new Web3(window.ethereum);
+  var Contract = new library.eth.Contract(BscContract,bscContractAddress);
   const result = await Contract.methods.createPool(
     "Suraj",
     "0x637F61C18Cd7259f7c5EA50591C7Befe6A2E0BfE",
@@ -116,7 +135,7 @@ let x = new BigNumber(123).plus(10);
                 Connect To MetaMask
               </Button>
               <Typography>
-                Address:-{accounts !== 'undefined' && accounts}
+                Address:-{account !== 'undefined' && account}
               </Typography>
               <Typography>
                 Chain Id:-{chainid !== 'undefined' && chainid}

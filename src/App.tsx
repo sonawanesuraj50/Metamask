@@ -11,6 +11,12 @@ import Component from './Components/Components';
 import DarkTheme from './Styles/DarkTheme';
 // import { Theme } from "./Styles/NavBar.styles";
 //import LightTheme from './Styles/LightTheme';
+import { Web3ReactProvider } from '@web3-react/core'
+import Web3 from 'web3'
+
+function getLibrary(provider:any) {
+  return new Web3(provider)
+}
 
 
 export const GlobalStyle = createGlobalStyle<any>`
@@ -29,21 +35,23 @@ export const GlobalStyle = createGlobalStyle<any>`
 
 function App() {
   return (
-    <ThemeProvider theme={DarkTheme}>
-      <GlobalStyle />
-      <Router basename="Metamask">
-        <NavBar />
-        <Routes>
-              <Route path="/component" element={<Component />}>               
-              </Route>
-              <Route path="/contact" element={<h4>This is Contact Page</h4>}>               
-              </Route>
-              <Route path="/product" element={<h4>This is Product Page</h4>}>            
-              </Route>
-              <Route path="/" element={<Home/>} />                
-              </Routes>
-      </Router>
-    </ThemeProvider>
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <ThemeProvider theme={DarkTheme}>
+        <GlobalStyle />
+        <Router basename="Metamask">
+          <NavBar />
+          <Routes>
+                <Route path="/component" element={<Component />}>               
+                </Route>
+                <Route path="/contact" element={<h4>This is Contact Page</h4>}>               
+                </Route>
+                <Route path="/product" element={<h4>This is Product Page</h4>}>            
+                </Route>
+                <Route path="/" element={<Home/>} />                
+                </Routes>
+        </Router>
+      </ThemeProvider>
+    </Web3ReactProvider>
   );
 }
 
