@@ -1,26 +1,36 @@
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
 import { 
     Nav,
     HamBurger,
     Menu,
     MenuLinks,
     Logo, 
-    // ToggleButton
+    ToggleWrapper,
+    Notch
 } from "../Styles/NavBar.styles";
 import { useSelector } from 'react-redux';
-// import {Toggle} from '../Styles/Toggle';
+import { ThemeContext } from "styled-components";
+
+function Toggle(isActive:any) {
+    return(
+        <ToggleWrapper>
+            <Notch isActive={isActive}/>
+        </ToggleWrapper>
+    )
+}
 
 
-const NavBar = () => {
+function NavBar() {
     const [open, setOpen] = useState(false);
-    const counter = useSelector((state:any) => state.counters)
+    const counter = useSelector((state:any) => state.counters);
+    const {id,setTheme} = useContext(ThemeContext);
     return (
         <>
             <Nav>
                 <Logo href="">
                     Logo
                 </Logo>
-                <HamBurger onClick={ ()=>setOpen(!open)}>
+                <HamBurger onClick={()=>setOpen(!open)}>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -28,9 +38,9 @@ const NavBar = () => {
                 <Menu open={open}>
                     <MenuLinks to="/">Home</MenuLinks>
                     <MenuLinks to="/component">Component</MenuLinks>
-                    <MenuLinks to="/product">Product</MenuLinks>
+                    <MenuLinks to="/pool">Pool</MenuLinks>
                     <MenuLinks to="/contact">Contact</MenuLinks>
-                    {/* <Toggle /> */}
+                    <Toggle isActive={id === "dark"} onToggle ={setTheme}/>
                     <h3 style={{color:"black"}}>{counter}</h3>
                 </Menu>
             </Nav>

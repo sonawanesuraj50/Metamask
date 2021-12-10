@@ -91,6 +91,7 @@ export const ButtonDiv = styled.div`
 
 
 export interface Theme {
+    id?: string;
     backgroundColor?: string;
     secondary?: string;
     primary?: string;
@@ -99,3 +100,25 @@ export interface Theme {
     textColor?: string;
     fontFamily?: string;
   }
+
+  export const ToggleWrapper = styled.div<any>`
+    width: 50px;
+    min-width: 50px;
+    height: 22px;
+    border-radius: 25px;
+    border: 1px solid #666;
+    margin: auto;
+    display: flex;
+    background-image: linear-gradient(to bottom, ${(props:any):any => props.theme.primary} , ${(props:any):any => props.theme.secondary});
+`;
+
+export const Notch = styled.div<any>`
+    height: 21px;
+    width: 21px;
+    border: 1px; 
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.1s linear;
+    transform: translate(${p => p.isActive ? '26px' : '1px'});
+`;
+

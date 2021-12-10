@@ -37,6 +37,7 @@ function Home() {
   useEffect(() => {
     async function init(){
     var ethereum:any = await detectEthereumProvider();
+    console.log(ethereum)
      web3 = new Web3(window.ethereum);
       web3.currentProvider.on("accountsChanged", async function () {
         let accounts = await web3.eth.getAccounts();
@@ -74,6 +75,11 @@ function Home() {
   var metaMaskDissconnect = async () => {
     //  web3 = new Web3(window.ethereum);
     //  await web3.currentProvider._handleDisconnect();
+    //  localStorage.clear();
+    //  setAccounts('')
+    //  setChainId('')
+    //  window.location.reload();
+    //  console.log('dissconnect---')
     try {
       deactivate()   
      localStorage.clear();

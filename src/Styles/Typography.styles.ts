@@ -1,6 +1,6 @@
 import styled,{css} from "styled-components";
 
-export const Typography = styled.text`
+export const Typography = styled.text<any>`
   color: ${props => props.theme.textColor};
   font-size: 1.2rem;
   font-weight: 500;
