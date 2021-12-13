@@ -15410,6 +15410,13 @@ react-transition-group@^4.4.2:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-web3@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-web3/-/react-web3-1.2.0.tgz#41863b5edc9d21fe93ed2831deb77782ad0dbe11"
+  integrity sha512-h2ic4ZeE3YTOFtpoMLCo8iwHSVatVzU+Z8zBj5T7TULDHgYEgnLh7iUi5Lle5qCfLJLF2fo0Tcz/Bm1h4BtVQA==
+  dependencies:
+    lodash "^4.17.11"
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"

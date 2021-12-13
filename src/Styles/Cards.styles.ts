@@ -2,6 +2,7 @@ import styled,{css} from "styled-components";
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { Button } from '../Styles/Button.styles';
 
 
 export const StyledCard = styled.article<any>`
@@ -177,7 +178,7 @@ export const LiquidityCard = styled.article<any>`
     text{
         display: flex;
         justify-content: space-between;
-        margin-top: 0.5rem
+        margin: 0.5rem 0 0.5rem 0;
     }
     input{
         width: 100%;
@@ -221,6 +222,10 @@ export const HelpIcon = styled(HelpOutlineIcon)`
     cursor: help;
     position: absolute;
     right: 0;
+`;
+
+export const StyledButton = styled(Button)`
+    margin-top: 2rem;
 `;
  
 /*********************************************** */
