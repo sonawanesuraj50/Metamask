@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Metamask/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/Metamask/static/js/main.25ccb6fe.chunk.js",
-    "main.js.map": "/Metamask/static/js/main.25ccb6fe.chunk.js.map",
+    "main.js": "/Metamask/static/js/main.edd746ee.chunk.js",
+    "main.js.map": "/Metamask/static/js/main.edd746ee.chunk.js.map",
     "runtime-main.js": "/Metamask/static/js/runtime-main.2182ed33.js",
     "runtime-main.js.map": "/Metamask/static/js/runtime-main.2182ed33.js.map",
     "static/js/2.6c23deef.chunk.js": "/Metamask/static/js/2.6c23deef.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.2182ed33.js",
     "static/js/2.6c23deef.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.25ccb6fe.chunk.js"
+    "static/js/main.edd746ee.chunk.js"
   ]
 }
