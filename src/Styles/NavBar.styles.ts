@@ -119,6 +119,7 @@ export const Notch = styled.div<any>`
     background: white;
     border-radius: 50%;
     transition: transform 0.1s linear;
+    cursor: pointer;
     transform: translate(${p => p.isActive ? '26px' : '1px'});
 `;
 

@@ -8,22 +8,15 @@ import {
     ToggleWrapper,
     Notch
 } from "../Styles/NavBar.styles";
-import { useSelector } from 'react-redux';
-import { ThemeContext } from "styled-components";
-
-function Toggle(isActive:any) {
-    return(
-        <ToggleWrapper>
-            <Notch isActive={isActive}/>
-        </ToggleWrapper>
-    )
-}
+import { useDispatch, useSelector } from 'react-redux';
+import {toggleLight,toggleDark} from '../actions/index';
 
 
 function NavBar() {
     const [open, setOpen] = useState(false);
     const counter = useSelector((state:any) => state.counters);
-    const {id,setTheme} = useContext(ThemeContext);
+    const distpatch = useDispatch();
+    const toggleTheme = useSelector((state:any) => state.themeToggle) 
     return (
         <>
             <Nav>
@@ -40,7 +33,11 @@ function NavBar() {
                     <MenuLinks to="/component">Component</MenuLinks>
                     <MenuLinks to="/pool">Pool</MenuLinks>
                     <MenuLinks to="/contact">Contact</MenuLinks>
-                    <Toggle isActive={id === "dark"} onToggle ={setTheme}/>
+                    <ToggleWrapper >
+                        <Notch isActive={toggleTheme} 
+                            onClick={()=> 
+                                toggleTheme ? distpatch(toggleLight()) : distpatch(toggleDark())}/>
+                    </ToggleWrapper>
                     <h3 style={{color:"black"}}>{counter}</h3>
                 </Menu>
             </Nav>

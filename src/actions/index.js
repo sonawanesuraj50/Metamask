@@ -10,8 +10,14 @@ export const decrement = () => {
     }
 }
 
-export const toggle = () => {
+export const toggleLight = () => {
     return {
-        type: 'TOGGLE'
+        type: 'lightTheme'
+    }
+}
+
+export const toggleDark = () => {
+    return {
+        type: 'darkTheme'
     }
 }

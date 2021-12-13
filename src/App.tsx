@@ -14,6 +14,7 @@ import LightTheme from './Styles/LightTheme';
 import { Web3ReactProvider } from '@web3-react/core'
 import Web3 from 'web3'
 import Pool from "./Components/Pool";
+import { useSelector } from "react-redux";
 
 function getLibrary(provider:any) {
   return new Web3(provider)
@@ -35,12 +36,10 @@ export const GlobalStyle = createGlobalStyle<any>`
   }`;
 
 function App() {
-  const [theme, setTheme] = useState(DarkTheme)
+  const toggleTheme = useSelector((state:any) => state.themeToggle) 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <ThemeProvider theme={{...theme,setTheme: () => {
-        setTheme(s => s.id === "light" ? DarkTheme : LightTheme)
-      }}}>
+      <ThemeProvider theme={toggleTheme?LightTheme:DarkTheme}>
         <GlobalStyle />
         <Router basename="Metamask">
           <NavBar />
