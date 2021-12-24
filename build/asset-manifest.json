@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/Metamask/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/Metamask/static/js/main.25ccb6fe.chunk.js",
-    "main.js.map": "/Metamask/static/js/main.25ccb6fe.chunk.js.map",
+    "main.js": "/Metamask/static/js/main.01dd0e7f.chunk.js",
+    "main.js.map": "/Metamask/static/js/main.01dd0e7f.chunk.js.map",
     "runtime-main.js": "/Metamask/static/js/runtime-main.2182ed33.js",
     "runtime-main.js.map": "/Metamask/static/js/runtime-main.2182ed33.js.map",
-    "static/js/2.6c23deef.chunk.js": "/Metamask/static/js/2.6c23deef.chunk.js",
-    "static/js/2.6c23deef.chunk.js.map": "/Metamask/static/js/2.6c23deef.chunk.js.map",
+    "static/js/2.a2554120.chunk.js": "/Metamask/static/js/2.a2554120.chunk.js",
+    "static/js/2.a2554120.chunk.js.map": "/Metamask/static/js/2.a2554120.chunk.js.map",
     "index.html": "/Metamask/index.html",
     "static/css/main.2ae47eeb.chunk.css.map": "/Metamask/static/css/main.2ae47eeb.chunk.css.map",
-    "static/js/2.6c23deef.chunk.js.LICENSE.txt": "/Metamask/static/js/2.6c23deef.chunk.js.LICENSE.txt"
+    "static/js/2.a2554120.chunk.js.LICENSE.txt": "/Metamask/static/js/2.a2554120.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2182ed33.js",
-    "static/js/2.6c23deef.chunk.js",
+    "static/js/2.a2554120.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.25ccb6fe.chunk.js"
+    "static/js/main.01dd0e7f.chunk.js"
   ]
 }

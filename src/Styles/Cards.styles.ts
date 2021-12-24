@@ -161,12 +161,12 @@ export const StyledCardComponent = styled.article<any>`
 
 
 export const LiquidityCard = styled.article<any>`
-    width:90vw;
+    /* width:90vw;
     max-width: 30rem;
     background: rgb(50, 41, 37);
     border-radius: 0.5rem;    
     padding: 1rem;
-    box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px, rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px;
+    box-shadow: rgb(0 0 0 / 1%) 0px 0px 1px, rgb(0 0 0 / 4%) 0px 4px 8px, rgb(0 0 0 / 4%) 0px 16px 24px, rgb(0 0 0 / 1%) 0px 24px 32px; */
     header{
         text-align: center;
         font-weight: 500;
@@ -186,7 +186,10 @@ export const LiquidityCard = styled.article<any>`
         background: rgb(50, 41, 37);
         display: flex;
         align-items: center;
-        justify-content: center;       
+        justify-content: center;      
+        :focus {
+            outline: none;
+        } 
     }
     footer{
         padding: 0 0.5rem;
@@ -198,11 +201,11 @@ export const LiquidityCard = styled.article<any>`
       
         }
     }
-    transition:all 0.5s ease-in-out; &:hover{
-        box-shadow: 0 3px 3px ${props => props.theme.textColor};
+    /* transition:all 0.5s ease-in-out; &:hover{
+        box-shadow: 0 3px 3px rgb(255, 205, 132);
         cursor: pointer;         
-        transform: translate(0, -4px);
-    }
+        transform: translate(0, -1px);
+    } */
 `;
 
 export const CenterAlign = styled.div`

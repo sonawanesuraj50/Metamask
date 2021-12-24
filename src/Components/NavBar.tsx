@@ -30,9 +30,9 @@ function NavBar() {
                 </HamBurger>
                 <Menu open={open}>
                     <MenuLinks to="/">Home</MenuLinks>
-                    <MenuLinks to="/component">Component</MenuLinks>
-                    <MenuLinks to="/pool">Pool</MenuLinks>
-                    <MenuLinks to="/contact">Contact</MenuLinks>
+                    <MenuLinks to="component">Component</MenuLinks>
+                    <MenuLinks to="pool">Pool</MenuLinks>
+                    <MenuLinks to="contact">Contact</MenuLinks>
                     <ToggleWrapper >
                         <Notch isActive={toggleTheme} 
                             onClick={()=> 

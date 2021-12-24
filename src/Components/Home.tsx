@@ -24,11 +24,12 @@ function Home() {
   const [accounts,setAccounts] = useState<any>('');
   const [chainid,setChainId] = useState<any>();
   const [getBalance,SetGetBalanced] = useState<any>(); 
-  const [name,setName] = useState<any>(); 
+  const [name,setName] = useState<any>();
+  const [loading,setLoading] = useState(false);
+
   
   const counter:any = useSelector((state:any) => state.counters) 
-  const { active, account, library, connector, activate, deactivate } = useWeb3React<any>()
-
+  const { active, account, library, connector, activate, deactivate } = useWeb3React<any>() 
   const distpatch = useDispatch();
 
   //const ContractAddress = "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72";
@@ -36,14 +37,16 @@ function Home() {
 
   useEffect(() => {
     async function init(){
+      {localStorage.getItem("isactive") && await activate(injected)}
+      
     var ethereum:any = await detectEthereumProvider();
-    console.log(ethereum)
      web3 = new Web3(window.ethereum);
-      web3.currentProvider.on("accountsChanged", async function () {
+      web3.currentProvider.on("accountsChanged", async function () {       
+        console.log(active,'----------------a----------------------')
         let accounts = await web3.eth.getAccounts();
         var networkId = await web3.eth.net.getId();
         setAccounts(accounts);
-        setChainId(networkId);       
+        setChainId(networkId); 
       });
       ethereum.on('chainChanged', (chainId:any) => {
         setChainId(chainId)
@@ -52,6 +55,7 @@ function Home() {
       var ContractName = await Contract.methods.INIT_CODE_PAIR_HASH().call();
 
       setName(ContractName)
+   
     }
     init()
   },[accounts,name])
@@ -62,11 +66,14 @@ function Home() {
     // web3 = new Web3(window.ethereum);
     // let account = await ethereum.request({ method: 'eth_requestAccounts' });
     try {
+      setLoading(true);      
       await activate(injected)
       setAccounts(account);
       let chainid = await web3.eth.net.getId();
-      setChainId(chainid)
+      setChainId(chainid)     
       console.log(account,library,'account','library'); 
+      localStorage.setItem("isactive",JSON.stringify(true))
+      setLoading(false); 
   } catch (ex) {
       console.log(ex)
   }  
@@ -81,11 +88,12 @@ function Home() {
     //  window.location.reload();
     //  console.log('dissconnect---')
     try {
-      deactivate()   
-     localStorage.clear();
-     setAccounts('')
-     setChainId('')
-     window.location.reload();
+      deactivate()  
+      localStorage.setItem("isactive",JSON.stringify(false))
+      localStorage.clear();
+      setAccounts('')
+      setChainId('')
+      window.location.reload();
     } catch (ex) {
       console.log(ex)
     }
@@ -103,10 +111,12 @@ function Home() {
  const changeNetwork = async (chainId:any) => {
   if (window.ethereum) {
     try {
+      setLoading(true);
        await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: chainId }],      
       });
+      setLoading(false);
     } catch (error) {
       window.location.reload();
     }
@@ -138,7 +148,7 @@ let x = new BigNumber(123).plus(10);
             <>
               <Typography>'MetaMask is installed!'</Typography>
               <Button style={{display:'block'}} onClick={metamaskConnect}>
-                Connect To MetaMask
+                {loading ? <span>Loading...</span>  : <span>Connect To MetaMask</span>}
               </Button>
               <Typography>
                 Address:-{account !== 'undefined' && account}
@@ -146,7 +156,7 @@ let x = new BigNumber(123).plus(10);
               <Typography>
                 Chain Id:-{chainid !== 'undefined' && chainid}
               </Typography>  
-              {accounts !== '' && 
+              {active && 
                 <>
                   <Button error style={{display:'block'}} onClick={metaMaskDissconnect}>
                     Dissconnect From MetaMask   
